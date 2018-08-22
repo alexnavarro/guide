@@ -1,4 +1,4 @@
-package br.com.alexandre.guide.review.respository
+package br.com.alexandre.guide.review.repository
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -10,7 +10,7 @@ class Review {
     var reviewId: Int = 0
     @SerializedName("rating")
     @Expose
-    var rating: String? = null
+    var rating: Int = 0
     @SerializedName("title")
     @Expose
     var title: String? = null

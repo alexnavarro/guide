@@ -1,4 +1,4 @@
-package br.com.alexandre.guide.review.respository
+package br.com.alexandre.guide.review.repository
 
 enum class OrderBy constructor(val description: String) {
 

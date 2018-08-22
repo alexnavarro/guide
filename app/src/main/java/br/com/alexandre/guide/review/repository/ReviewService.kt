@@ -1,4 +1,4 @@
-package br.com.alexandre.guide.review.respository
+package br.com.alexandre.guide.review.repository
 
 import retrofit2.Call
 import retrofit2.http.GET

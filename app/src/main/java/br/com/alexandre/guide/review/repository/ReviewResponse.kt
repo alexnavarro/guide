@@ -1,4 +1,4 @@
-package br.com.alexandre.guide.review.respository
+package br.com.alexandre.guide.review.repository
 
 import com.google.gson.annotations.SerializedName
 

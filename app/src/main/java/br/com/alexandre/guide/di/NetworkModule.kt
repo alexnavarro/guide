@@ -1,7 +1,7 @@
 package br.com.alexandre.guide.di
 
 import br.com.alexandre.guide.BuildConfig
-import br.com.alexandre.guide.review.respository.ReviewService
+import br.com.alexandre.guide.review.repository.ReviewService
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor

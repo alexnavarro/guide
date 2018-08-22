@@ -1,7 +1,7 @@
 package br.com.alexandre.guide.viewmodel
 
-import br.com.alexandre.guide.review.respository.ReviewRespository
-import br.com.alexandre.guide.review.respository.ReviewService
+import br.com.alexandre.guide.review.repository.ReviewRespository
+import br.com.alexandre.guide.review.repository.ReviewService
 import dagger.Module
 import dagger.Provides
 import android.app.Application

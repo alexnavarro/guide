@@ -1,4 +1,4 @@
-package br.com.alexandre.guide.review.respository
+package br.com.alexandre.guide.review.repository
 
 import android.arch.lifecycle.MutableLiveData
 import android.util.Log
