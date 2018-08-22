@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import dagger.android.support.DaggerAppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.RecyclerView
 import br.com.alexandre.guide.viewmodel.ReviewViewModel
 import br.com.alexandre.guide.viewmodel.ReviewViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,6 +32,14 @@ class MainActivity : DaggerAppCompatActivity() {
             it?.let {
                 (recycler_reviews.adapter as ReviewAdapter).addAllReviews(it)
             }
+        })
+
+        recycler_reviews.addOnScrollListener(object: RecyclerView.OnScrollListener(){
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+            }
+
         })
     }
 }
