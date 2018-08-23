@@ -38,4 +38,17 @@ class Review {
     @SerializedName("reviewerCountry")
     @Expose
     var reviewerCountry: String? = null
+
+    fun getFormattedMessage() : String{
+        val builder = StringBuilder()
+        title.let { builder.append(title) }
+
+        if(builder.isNotEmpty()){
+            builder.append(".")
+        }
+
+        message.let { builder.append(message) }
+
+        return builder.toString()
+    }
 }

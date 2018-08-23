@@ -14,9 +14,9 @@ import android.databinding.DataBindingUtil
 
 class ReviewAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    private val HEADER: Int = -1
-    private val REVIEW: Int = 1
-    private val LOADING: Int = -2
+    private val HEADER: Int = 1
+    private val REVIEW: Int = 2
+    private val LOADING: Int = -1
 
     private val reviews:MutableList<Review> = mutableListOf()
     private var isLoading: Boolean = false
@@ -34,16 +34,10 @@ class ReviewAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     }
 
     override fun getItemCount(): Int {
-        val size = reviews.size
-
-//        if (size > 0) {
-//            if (hasHeader()) {
-//                size++;
-//            }
-//        }
-
-        return size
+        return reviews.size
     }
+
+    fun getTotal() = reviews.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(holder is ReviewViewHolder){
@@ -52,23 +46,23 @@ class ReviewAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     }
 
     override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
-
-        if (isLoading() && position == itemCount - 1) {
+        if (isLoading && position == itemCount -1) {
             return LOADING
         }
 
         return REVIEW
     }
 
-    fun addAllReviews(reviews:List<Review>){
-        this@ReviewAdapter.reviews.clear()
-        this@ReviewAdapter.reviews.addAll(reviews)
-        notifyDataSetChanged()
-    }
+    fun addAll(reviews:List<Review>?, page:Int){
+        if(page == 0) {
+            this@ReviewAdapter.reviews.clear()
+        }
 
-    fun addAllReviewsByPage(reviews:List<Review>){
-       this@ReviewAdapter.reviews.addAll(reviews)
+        if(reviews != null && !reviews.isEmpty()) {
+            this@ReviewAdapter.reviews.addAll(reviews)
+        }
+
+        setLoading(false)
         notifyDataSetChanged()
     }
 
@@ -90,23 +84,8 @@ class ReviewAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     private class ReviewViewHolder(private val mainReviewItemBinding: ActivityMainReviewItemBinding) : RecyclerView.ViewHolder(mainReviewItemBinding.root) {
 
-        init {
-            this.mainReviewItemBinding.root.setOnClickListener({ v ->
-//                if (callback != null) {
-//                    callback!!.onListingClicked(itemOfertaLancamentoBinding.getViewModel().getImovelBase())
-//                }
-            })
-        }
-
         fun bind(review: Review) {
             mainReviewItemBinding.viewModel = review
-//            if (itemOfertaLancamentoBinding.getViewModel() == null) {
-//                itemOfertaLancamentoBinding.setViewModel(ListingViewModel(imovelBase, context))
-//            } else {
-//                itemOfertaLancamentoBinding.getViewModel().setImovelBase(imovelBase)
-//            }
-
-//            itemOfertaLancamentoBinding.ibFavorito.setOnClickListener(favoritar(context, imovelBase, itemOfertaLancamentoBinding.ibFavorito, screenSource, tracking))
         }
     }
 

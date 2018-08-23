@@ -4,7 +4,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface   ReviewService {
+interface ReviewService {
 
     @GET("reviews.json?count=15")
     fun loadReviews(@Query("page") page: Int,

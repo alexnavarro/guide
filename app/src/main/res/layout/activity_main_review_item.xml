@@ -24,13 +24,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="6dp"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="@{viewModel.rating}"
             android:stepSize="1"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_author"
             tools:rating="2" />
 
         <TextView
@@ -38,10 +38,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:textSize="12sp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            android:text="@{viewModel.title}"
-            android:visibility="@{(TextUtils.isEmpty(viewModel.title) ? View.GONE : View.VISIBLE)}"
+            android:text="@{viewModel.getFormattedMessage()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/ratingBar"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar"
@@ -50,7 +50,7 @@
         <TextView
             android:id="@+id/text_date"
             android:layout_width="wrap_content"
-            android:layout_height="11dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:text="@{viewModel.date}"
@@ -61,58 +61,25 @@
             tools:text="22/08/2018" />
 
         <TextView
-            android:id="@+id/text_message"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@{viewModel.message}"
-            android:visibility="@{(TextUtils.isEmpty(viewModel.message) ? View.GONE : View.VISIBLE)}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_title"
-            tools:text="A really interesting trip around a real historic gem that reflects Berlin’s 20th Century story. Our guide was very knowledgeable and made the trip interesting" />
-
-        <TextView
             android:id="@+id/text_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
+            android:textSize="12sp"
             android:layout_marginTop="8dp"
             android:text="@{viewModel.author}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_message"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Author" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/from"
-            app:layout_constraintStart_toEndOf="@+id/text_author"
-            app:layout_constraintTop_toBottomOf="@+id/text_message" />
-
-        <TextView
-            android:id="@+id/text_city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@{viewModel.reviewerCountry}"
-            app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/text_message"
-            tools:text="Berlin" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_title" />
 
     </android.support.constraint.ConstraintLayout>
 
